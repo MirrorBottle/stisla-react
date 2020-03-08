@@ -6,9 +6,9 @@ import moment from 'moment';
 // Button for trigerring NotificationMenu
 function NotificationButton({ isOpen, setOpen, icon }) {
     return (
-        <a href="#" onClick={() => setOpen(!isOpen)} class="nav-link notification-toggle nav-link-lg beep">
+        <div style={{ cursor: 'pointer' }} onClick={() => setOpen(!isOpen)} className="nav-link notification-toggle nav-link-lg beep">
             <i className={icon}></i>
-        </a>
+        </div>
     )
 }
 // Notification Item
@@ -23,48 +23,48 @@ function NotificationItem({ data }) {
     )
 }
 // Notification Menu
-function NotificationMenu({ title, items, className, isOpen }) {
+function NotificationMenu({ title, items, className, isOpen, viewAllLink }) {
     return (
         <div className={`${className} ${isOpen ? 'show' : null}`}>
             <div className="dropdown-header">{title}</div>
-            <div className="dropdown-list-content dropdown-list-icons" style={{ overflowY: 'scroll' }}>
+            <div className="dropdown-list-content dropdown-list-icons">
                 {items.map(item => {
-                    return <NotificationItem data={item} />
+                    return <NotificationItem key={Math.random()} data={item} />
                 })}
             </div>
-            <div className="dropdown-footer text-center">
-                <a href="#">View All <i className="fas fa-chevron-right"></i></a>
-            </div>
+            {viewAllLink && <div className="dropdown-footer text-center">
+                <Link to={viewAllLink}>View All <i className="fas fa-chevron-right"></i></Link>
+            </div>}
         </div>
     )
 }
 // Notification Container
-function Notification({ icon, items, title }) {
+function Notification({ icon, items, title, viewAllLink }) {
     const [isOpen, setOpen] = useState(false);
     return (
-        <li class="dropdown dropdown-list-toggle">
-            <NotificationButton isOpen={isOpen} setOpen={setOpen} icon={icon}></NotificationButton>
-            <NotificationMenu isOpen={isOpen} items={items} title={title} />
+        <li className="dropdown dropdown-list-toggle">
+            <NotificationButton isOpen={isOpen} setOpen={setOpen} icon={icon} />
+            <NotificationMenu viewAllLink={viewAllLink} isOpen={isOpen} items={items} title={title} />
         </li>
     )
 }
 
 Notification.propTypes = {
     icon: PropTypes.string,
-    items: PropTypes.objectOf({
+    items: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string,
-        time: PropTypes.number,
+        time: PropTypes.instanceOf(moment),
         link: PropTypes.string
-    }),
+    })),
     title: PropTypes.string
 }
 NotificationButton.propTypes = {
     icon: PropTypes.string
 }
 NotificationItem.propTypes = {
-    data: PropTypes.objectOf({
+    data: PropTypes.shape({
         title: PropTypes.string,
-        time: PropTypes.number,
+        time: PropTypes.instanceOf(moment),
         link: PropTypes.string
     })
 }
@@ -75,6 +75,9 @@ NotificationMenu.propTypes = {
     title: PropTypes.string
 }
 
+Notification.defaultProps = {
+    viewAllLink: null,
+}
 NotificationButton.defaultProps = {
     icon: 'far fa-bell'
 }

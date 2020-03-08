@@ -1,6 +1,7 @@
 import React from 'react'
 import Notification from 'components/Notifications'
 import { Link } from 'react-router-dom'
+import moment from 'moment';
 import {
     DropdownMenu,
     DropdownItem,
@@ -13,15 +14,46 @@ class AdminNavbar extends React.Component {
         super(props);
         this.sidebarToggler = props.sidebarToggler.bind(this);
     }
+    state = {
+        histories: [
+            { text: 'How to hack NASA using CSS', link: '/' },
+            { text: 'Kodinger.com', link: '/' },
+            { text: '#stisla', link: '/' }
+        ],
+        results: [
+            { text: 'oPhone S9 Limited Edition', link: '/', img: 'product-3-50.png' },
+            { text: 'Drone X2 New Gen-7', link: '/', img: 'product-2-50.png' },
+            { text: 'Headphone Blitz', link: '/', img: 'product-1-50.png' },
+        ],
+        projects: [
+            { text: 'Stisla Admin Template', link: '/', icon: 'fas fa-code', background: 'danger' },
+            { text: 'Create a new homepage template', link: '/', icon: 'fas fa-laptop', background: 'primary' },
+        ],
+        notifications: [
+            { title: 'something', time: moment(), link: '/' }
+        ],
+        mails: [
+
+        ]
+    }
     render() {
+        const { histories, results, projects, notifications } = this.state;
         return (
             <React.Fragment>
                 <div className="navbar-bg"></div>
                 <nav className="navbar navbar-expand-lg main-navbar">
                     <form className="form-inline mr-auto">
                         <ul className="navbar-nav mr-3">
-                            <li><a href="#" onClick={this.sidebarToggler} className="nav-link nav-link-lg"><i className="fas fa-bars"></i></a></li>
-                            <li><a href="#" data-toggle="search" className="nav-link nav-link-lg d-sm-none"><i className="fas fa-search"></i></a></li>
+                            <li>
+                                <div onClick={this.sidebarToggler} className="nav-link nav-link-lg">
+                                    <i className="fas fa-bars"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <button data-toggle="search" className="nav-link nav-link-lg d-sm-none">
+                                    <i className="fas fa-search"></i>
+                                </button>
+                            </li>
                         </ul>
                         <div className="search-element">
                             <input className="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" />
@@ -31,64 +63,42 @@ class AdminNavbar extends React.Component {
                                 <div className="search-header">
                                     Histories
                                 </div>
-                                <div className="search-item">
-                                    <a href="#">How to hack NASA using CSS</a>
-                                    <a href="#" className="search-close"><i className="fas fa-times"></i></a>
-                                </div>
-                                <div className="search-item">
-                                    <a href="#">Kodinger.com</a>
-                                    <a href="#" className="search-close"><i className="fas fa-times"></i></a>
-                                </div>
-                                <div className="search-item">
-                                    <a href="#">#Stisla</a>
-                                    <a href="#" className="search-close"><i className="fas fa-times"></i></a>
-                                </div>
+                                {histories.map(history => (
+                                    <div className="search-item" key={Math.random()}>
+                                        <Link to={history.link}>{history.text}</Link>
+                                        <Link to={history.link} className="search-close"><i className="fas fa-times"></i></Link>
+                                    </div>
+                                ))}
                                 <div className="search-header">
                                     Result
                                 </div>
-                                <div className="search-item">
-                                    <a href="#">
-                                        <img className="mr-3 rounded" width="30" src="../assets/img/products/product-3-50.png" alt="product" />
-                                        oPhone S9 Limited Edition
-                                    </a>
-                                </div>
-                                <div className="search-item">
-                                    <a href="#">
-                                        <img className="mr-3 rounded" width="30" src="../assets/img/products/product-2-50.png" alt="product" />
-                                        Drone X2 New Gen-7
-                                    </a>
-                                </div>
-                                <div className="search-item">
-                                    <a href="#">
-                                        <img className="mr-3 rounded" width="30" src="../assets/img/products/product-1-50.png" alt="product" />
-                                        Headphone Blitz
-                                    </a>
-                                </div>
+                                {results.map(result => (
+                                    <div className="search-item" key={Math.random()}>
+                                        <Link to={result.link}>
+                                            <img className="mr-3 rounded" width="30" src={require(`assets/img/products/${result.img}`)} alt={result.text} />
+                                            {result.text}
+                                        </Link>
+                                    </div>
+                                ))}
                                 <div className="search-header">
                                     Projects
                                 </div>
-                                <div className="search-item">
-                                    <a href="#">
-                                        <div className="search-icon bg-danger text-white mr-3">
-                                            <i className="fas fa-code"></i>
-                                        </div>
-                                        Stisla Admin Template
-                                    </a>
-                                </div>
-                                <div className="search-item">
-                                    <a href="#">
-                                        <div className="search-icon bg-primary text-white mr-3">
-                                            <i className="fas fa-laptop"></i>
-                                        </div>
-                                        Create a new Homepage Design
-                                    </a>
-                                </div>
+                                {projects.map(project => (
+                                    <div className="search-item" key={Math.random()}>
+                                        <Link to={project.link}>
+                                            <div className={`search-icon bg-${project.background} text-white mr-3`}>
+                                                <i className={project.icon}></i>
+                                            </div>
+                                            {project.text}
+                                        </Link>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </form>
                     <ul className="navbar-nav navbar-right">
-                        <Notification icon="fas fa-envelope" items={[]} title="Something" />
-                        <Notification icon="far fa-bell" items={[]} title="Something" />
+                        <Notification icon="fas fa-envelope" items={notifications} title="Messages" />
+                        <Notification icon="far fa-bell" items={notifications} title="Notifications" />
                         <UncontrolledDropdown nav>
                             <DropdownToggle className="pr-0" nav>
                                 <Media className="align-items-center">
