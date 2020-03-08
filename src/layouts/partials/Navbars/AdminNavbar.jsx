@@ -11,10 +11,7 @@ import {
 class AdminNavbar extends React.Component {
     constructor(props) {
         super(props);
-        this.sidebarToggler = this.sidebarToggler.bind(this);
-    }
-    sidebarToggler() {
-        document.querySelector('body').classList.toggle('sidebar-mini')
+        this.sidebarToggler = props.sidebarToggler.bind(this);
     }
     render() {
         return (

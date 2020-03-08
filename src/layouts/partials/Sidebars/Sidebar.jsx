@@ -9,11 +9,8 @@ import routes from 'routes.js';
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
-        this.sidebarToggler = this.sidebarToggler.bind(this);
+        this.sidebarToggler = props.sidebarToggler.bind(this);
         this.activeRoute.bind(this);
-    }
-    sidebarToggler() {
-        document.querySelector('body').classList.toggle('sidebar-mini')
     }
     // verifies if routeName is the one active (in browser input)
     activeRoute(routeName) {

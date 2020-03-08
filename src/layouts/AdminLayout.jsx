@@ -10,6 +10,23 @@ export default class AdminLayout extends Component {
         super(props);
         this.getRoutes = this.getRoutes.bind(this);
         this.getBrandText = this.getBrandText.bind(this);
+        this.sidebarToggler = this.sidebarToggler.bind(this);
+    }
+    sidebarToggler() {
+        const body = document.querySelector('body');
+        if (document.documentElement.clientWidth < 768) {
+            if (body.classList.contains('sidebar-show')) {
+                body.classList.remove('sidebar-show');
+                body.classList.add('sidebar-gone');
+            } else {
+                body.classList.remove('sidebar-gone');
+                body.classList.add('sidebar-show');
+            }
+        } else {
+            body.classList.remove('sidebar-gone');
+            body.classList.remove('sidebar-show');
+            body.classList.toggle('sidebar-mini')
+        }
     }
     getRoutes(routes) {
         return routes.map((prop, key) => {
@@ -41,8 +58,8 @@ export default class AdminLayout extends Component {
     render() {
         return (
             <React.Fragment>
-                <AdminNavbar />
-                <Sidebar />
+                <AdminNavbar sidebarToggler={this.sidebarToggler} />
+                <Sidebar sidebarToggler={this.sidebarToggler} />
                 <div className="main-content">
                     <section className="section">
                         <div className="section-header">
