@@ -2,11 +2,18 @@ import React from 'react'
 import { NavLink as NavLinkRRD, Link, withRouter } from "react-router-dom";
 import {
     NavItem,
-    NavLink
+    NavLink,
+    Collapse,
+    Button,
+    CardBody,
+    Card
 } from 'reactstrap';
 import SidebarDropdownItem from 'components/SidebarDropdownItem';
 import routes from 'routes.js';
 class Sidebar extends React.Component {
+    state = {
+        isOpen: false
+    }
     constructor(props) {
         super(props);
         this.sidebarToggler = props.sidebarToggler.bind(this);
@@ -19,20 +26,16 @@ class Sidebar extends React.Component {
     createLinks = routes => {
         return routes.map((prop, key) => {
             if ('subMenu' in prop) {
-                return <SidebarDropdownItem key={key} {...prop} />;
+                return <SidebarDropdownItem activeRoute={this.activeRoute} key={key} {...prop} />;
             }
             if (prop.isActive) {
                 return (
-                    <NavItem key={key}>
-                        <NavLink
-                            to={prop.layout + prop.path}
-                            tag={NavLinkRRD}
-                            activeClassName="active"
-                        >
-                            <i className={prop.icon} />
-                            {prop.name}
-                        </NavLink>
-                    </NavItem>
+                    <li key={key} className={this.activeRoute(prop.path)}>
+                        <Link to='/' className="nav-link">
+                            <i className={prop.icon}></i>
+                            <span>{prop.name}</span>
+                        </Link>
+                    </li>
                 );
             }
         });
@@ -53,15 +56,19 @@ class Sidebar extends React.Component {
                     <ul className="sidebar-menu">
                         <li className="menu-header">Dashboard</li>
                         <li className="nav-item dropdown active">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-fire"></i><span>Dashboard</span></a>
+                            <Link to="/" className="nav-link has-dropdown">
+                                <i className="fas fa-fire"></i>
+                                <span>Dashboard</span>
+                            </Link>
                             <ul className="dropdown-menu">
-                                <li className="active"><a className="nav-link" href="index-0.html">General Dashboard</a></li>
+                                <li className="dropdown-title">Dashboard</li>
+                                <li><a className="nav-link" href="index-0.html">General Dashboard</a></li>
                                 <li><a className="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                             </ul>
                         </li>
                         <li className="menu-header">Starter</li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown" data-toggle="dropdown"><i className="fas fa-columns"></i> <span>Layout</span></a>
+                            <Link to="/" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Layout</span></Link>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="layout-default.html">Default Layout</a></li>
                                 <li><a className="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
@@ -70,8 +77,9 @@ class Sidebar extends React.Component {
                         </li>
                         {this.createLinks(routes)}
                         <li><a className="nav-link" href="blank.html"><i className="far fa-square"></i> <span>Blank Page</span></a></li>
+                        <li><a className="nav-link" href="blank.html"><i className="fas fa-user"></i> <span>Blank Page</span></a></li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-th"></i> <span>Bootstrap</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-th"></i> <span>Bootstrap</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="bootstrap-alert.html">Alert</a></li>
                                 <li><a className="nav-link" href="bootstrap-badge.html">Badge</a></li>
@@ -97,7 +105,7 @@ class Sidebar extends React.Component {
                         </li>
                         <li className="menu-header">Stisla</li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-th-large"></i> <span>Components</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-th-large"></i> <span>Components</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="components-article.html">Article</a></li>
                                 <li><a className="nav-link beep beep-sidebar" href="components-avatar.html">Avatar</a></li>
@@ -115,7 +123,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="far fa-file-alt"></i> <span>Forms</span></a>
+                            <div className="nav-link has-dropdown"><i className="far fa-file-alt"></i> <span>Forms</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="forms-advanced-form.html">Advanced Form</a></li>
                                 <li><a className="nav-link" href="forms-editor.html">Editor</a></li>
@@ -123,7 +131,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-map-marker-alt"></i> <span>Google Maps</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-map-marker-alt"></i> <span>Google Maps</span></div>
                             <ul className="dropdown-menu">
                                 <li><a href="gmaps-advanced-route.html">Advanced Route</a></li>
                                 <li><a href="gmaps-draggable-marker.html">Draggable Marker</a></li>
@@ -136,7 +144,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-plug"></i> <span>Modules</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-plug"></i> <span>Modules</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="modules-calendar.html">Calendar</a></li>
                                 <li><a className="nav-link" href="modules-chartjs.html">ChartJS</a></li>
@@ -154,7 +162,7 @@ class Sidebar extends React.Component {
                         </li>
                         <li className="menu-header">Pages</li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="far fa-user"></i> <span>Auth</span></a>
+                            <div className="nav-link has-dropdown"><i className="far fa-user"></i> <span>Auth</span></div>
                             <ul className="dropdown-menu">
                                 <li><a href="auth-forgot-password.html">Forgot Password</a></li>
                                 <li><a href="auth-login.html">Login</a></li>
@@ -164,7 +172,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-exclamation"></i> <span>Errors</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-exclamation"></i> <span>Errors</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="errors-503.html">503</a></li>
                                 <li><a className="nav-link" href="errors-403.html">403</a></li>
@@ -173,7 +181,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-bicycle"></i> <span>Features</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-bicycle"></i> <span>Features</span></div>
                             <ul className="dropdown-menu">
                                 <li><a className="nav-link" href="features-activities.html">Activities</a></li>
                                 <li><a className="nav-link" href="features-post-create.html">Post Create</a></li>
@@ -185,7 +193,7 @@ class Sidebar extends React.Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a href="#" className="nav-link has-dropdown"><i className="fas fa-ellipsis-h"></i> <span>Utilities</span></a>
+                            <div className="nav-link has-dropdown"><i className="fas fa-ellipsis-h"></i> <span>Utilities</span></div>
                             <ul className="dropdown-menu">
                                 <li><a href="utilities-contact.html">Contact</a></li>
                                 <li><a className="nav-link" href="utilities-invoice.html">Invoice</a></li>
@@ -201,8 +209,8 @@ class Sidebar extends React.Component {
                     </a>
                     </div>
                 </aside>
-            </div >
+            </div>
         )
     }
 }
-export default Sidebar
+export default withRouter(Sidebar)

@@ -23,7 +23,7 @@ var routes = [
     {
         path: "/index",
         name: "Dashboard",
-        icon: "fas fa-tachometer-alt text-primary",
+        icon: "fas fa-tachometer-alt",
         component: props => <Dashboard {...props} />,
         layout: "/admin",
         isActive: true,
@@ -33,12 +33,22 @@ var routes = [
     {
         path: "/blank",
         name: "Blank",
-        icon: "fas fa-tachometer-alt text-primary",
+        icon: "fas fa-tachometer-alt",
         component: props => <Dashboard {...props} />,
         layout: "/admin",
         isActive: true,
         roles: ['admin'],
-        homepageFor: 'admin'
+        subMenu: [
+            {
+                path: "/blank",
+                name: "Blank",
+                icon: "fas fa-tachometer-alt",
+                component: props => <Dashboard {...props} />,
+                layout: "/admin",
+                isActive: true,
+                roles: ['admin'],
+            }
+        ]
     },
     {
         path: "/login",
