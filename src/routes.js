@@ -21,6 +21,7 @@ import Login from './views/Auth/Login.jsx';
 import Register from './views/Auth/Register';
 import ResetPassword from './views/Auth/ResetPassword.jsx';
 import ForgotPassword from './views/Auth/ForgotPassword.jsx';
+
 // Dashboard
 import Dashboard from './views/Dashboard/Dashboard';
 var routes = [
@@ -307,6 +308,47 @@ var routes = [
                 layout: "/auth",
                 isActive: false,
             }
+        ]
+    },
+    {
+        path: "/",
+        name: "Error",
+        icon: "fas fa-exclamation",
+        layout: "/",
+        isActive: true,
+        subMenu: [
+            {
+                path: "/503",
+                name: "503",
+                message: 'Be right back.',
+                status: '503',
+                layout: "/error",
+                isActive: true,
+            },
+            {
+                path: "/404",
+                name: "404",
+                message: 'The page you were looking for could not be found.',
+                status: '404',
+                layout: "/error",
+                isActive: true,
+            },
+            {
+                path: "/500",
+                name: "500",
+                message: 'Whoopps, something went wrong.',
+                status: '500',
+                layout: "/error",
+                isActive: true,
+            },
+            {
+                path: "/403",
+                name: "403",
+                message: 'You do not have access to this page.',
+                status: '403',
+                layout: "/error",
+                isActive: true,
+            },
         ]
     },
 ];

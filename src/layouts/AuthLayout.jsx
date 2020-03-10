@@ -4,10 +4,6 @@ import AuthHeader from 'layouts/partials/Headers/AuthHeader';
 import AuthFooter from 'layouts/partials/Footers/AuthFooter';
 import routes from 'routes.js';
 export default class AuthLayout extends Component {
-    constructor(props) {
-        super(props);
-        this.getRoutes = this.getRoutes.bind(this);
-    }
     getRoutes(routes) {
         return routes.map((prop, key) => {
             if ('layout' in prop && prop.layout === '/admin') {
@@ -35,23 +31,21 @@ export default class AuthLayout extends Component {
     };
     render() {
         return (
-            <>
-                <div className="section">
-                    <div className="container mt-5">
-                        <div className="row">
-                            <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                                <AuthHeader />
-                            </div>
-                            <Switch>{this.getRoutes(routes)}</Switch>
-                            <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                                <AuthFooter />
-                            </div>
-                            <img src={require('assets/img/unsplash/login-bg.jpg')} alt="" />
-
+            <div className="section">
+                <div className="container mt-5">
+                    <div className="row">
+                        <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                            <AuthHeader />
                         </div>
+                        <Switch>{this.getRoutes(routes)}</Switch>
+                        <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                            <AuthFooter />
+                        </div>
+                        <img src={require('assets/img/unsplash/login-bg.jpg')} alt="" />
+
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 }

@@ -9,9 +9,11 @@ import './assets/css/custom.css';
 import AuthLayout from './layouts/AuthLayout';
 import AdminLayout from './layouts/AdminLayout';
 import LoginAlternatif from './views/Auth/LoginAlternatif';
+import Error from './views/Error/Error';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
+            <Route path="/error" render={props => <Error {...props} />} />
             <Route path="/auth/login-2" render={props => <LoginAlternatif {...props} />} />
             <Route path="/admin" render={props => <AdminLayout {...props} />} />
             <Route path="/auth" render={props => <AuthLayout {...props} />} />

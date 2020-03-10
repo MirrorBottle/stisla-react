@@ -66,7 +66,7 @@ export default function LoginAlternatif(props) {
                                 <h1 className="mb-2 display-4 font-weight-bold">Good Morning</h1>
                                 <h5 className="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
                             </div>
-                            Photo by <Link className="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</Link> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
+                            Photo by <Link rel="noopener" className="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</Link> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
                         </div>
                     </div>
                 </div>

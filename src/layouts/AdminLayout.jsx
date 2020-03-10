@@ -8,8 +8,6 @@ import routes from "routes.js";
 export default class AdminLayout extends Component {
     constructor(props) {
         super(props);
-        this.getRoutes = this.getRoutes.bind(this);
-        this.getBrandText = this.getBrandText.bind(this);
         this.sidebarToggler = this.sidebarToggler.bind(this);
     }
     sidebarToggler() {
