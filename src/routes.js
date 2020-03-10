@@ -24,6 +24,9 @@ import ForgotPassword from './views/Auth/ForgotPassword.jsx';
 
 // Dashboard
 import Dashboard from './views/Dashboard/Dashboard';
+
+// Features
+import Activities from './views/Features/Activities.jsx';
 var routes = [
     {
         path: "/",
@@ -347,6 +350,65 @@ var routes = [
                 message: 'You do not have access to this page.',
                 status: '403',
                 layout: "/error",
+                isActive: true,
+            },
+        ]
+    },
+    {
+        path: "/",
+        name: "Features",
+        icon: "fas fa-bicycle",
+        layout: "/",
+        isActive: true,
+        roles: ['admin'],
+        subMenu: [
+            {
+                path: "/activities",
+                name: "Activities",
+                component: Activities,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/posts/create",
+                name: "Post Create",
+                component: ForgotPassword,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/posts",
+                name: "Posts",
+                component: ForgotPassword,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/profile",
+                name: "Profile",
+                component: ForgotPassword,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/settings",
+                name: "Settings",
+                component: ForgotPassword,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/settings/detail",
+                name: "Setting Detail",
+                component: ForgotPassword,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/tickets",
+                name: "Tickets",
+                component: ForgotPassword,
+                layout: "/admin",
                 isActive: true,
             },
         ]

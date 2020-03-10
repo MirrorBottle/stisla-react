@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
 import routes from 'routes.js'
 export default class Error extends Component {
     state = {

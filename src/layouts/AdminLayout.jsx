@@ -78,10 +78,10 @@ export default class AdminLayout extends Component {
                         <div className="section-header">
                             <h1>{this.getBrandText(this.props.location.pathname)}</h1>
                         </div>
+                        <div className="section-body">
+                            <Switch>{this.getRoutes(routes)}</Switch>
+                        </div>
                     </section>
-                    <div className="section-body">
-                        <Switch>{this.getRoutes(routes)}</Switch>
-                    </div>
                 </div>
                 <AdminFooter />
             </React.Fragment>
