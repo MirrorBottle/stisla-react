@@ -8,10 +8,11 @@ import './assets/css/style.css';
 import './assets/css/custom.css';
 import AuthLayout from './layouts/AuthLayout';
 import AdminLayout from './layouts/AdminLayout';
-
+import LoginAlternatif from './views/Auth/LoginAlternatif';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
+            <Route path="/auth/login-2" render={props => <LoginAlternatif {...props} />} />
             <Route path="/admin" render={props => <AdminLayout {...props} />} />
             <Route path="/auth" render={props => <AuthLayout {...props} />} />
             <Redirect from="/" to="/admin/index" />

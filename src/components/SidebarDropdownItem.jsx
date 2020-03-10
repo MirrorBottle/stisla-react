@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Collapse, CardBody, Card } from 'reactstrap';
-import { NavItem, NavLink } from 'reactstrap';
-import { NavLink as NavLinkRRD, Link, withRouter } from 'react-router-dom';
+import React from 'react';
+import { Collapse } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
 
 
-function toggle(name, isOpen) {
-    let openArrow = document.querySelector(`.fas.fa-arrow-down.ml-2#sidebarMenu${name}`);
-    openArrow.style.transform = `rotate(${isOpen ? -180 : 0}deg)`;
-}
+
 class SidebarDropdownItem extends React.Component {
     state = {
         isOpen: false
@@ -36,12 +32,10 @@ class SidebarDropdownItem extends React.Component {
         const { name, icon, subMenu } = this.props;
         return (
             <React.Fragment>
-                <li className="nav-item dropdown">
-                    <Link to="/" onClick={this.toggle} class="nav-link d-flex justify-content-between">
-                        <div>
-                            <i class={icon}></i>
-                            {name}
-                        </div>
+                <li className="nav-item">
+                    <Link to="/" onClick={this.toggle} class="nav-link">
+                        <i className={icon}></i>
+                        <span>{name}</span>
                         <i className="fas fa-chevron-right ml-2 float-right" id={`sidebarMenu${this.props.name}`}></i>
                     </Link>
                     <Collapse isOpen={isOpen}>
@@ -49,9 +43,8 @@ class SidebarDropdownItem extends React.Component {
                             {
                                 subMenu.map((prop, key) => {
                                     return (
-                                        <li key={key} className={this.activeRoute(prop.path)}>
-                                            <Link to='/' className="nav-link">
-                                                <i className={prop.icon}></i>
+                                        <li key={key} className={`${this.activeRoute(prop.path)}`}>
+                                            <Link to={prop.layout + prop.path} className="nav-link">
                                                 <span>{prop.name}</span>
                                             </Link>
                                         </li>
