@@ -27,6 +27,8 @@ import Dashboard from './views/Dashboard/Dashboard';
 
 // Features
 import Activities from './views/Features/Activities.jsx';
+import PostCreate from './views/Features/PostCreate.jsx';
+
 var routes = [
     {
         path: "/",
@@ -370,9 +372,9 @@ var routes = [
                 isActive: true,
             },
             {
-                path: "/posts/create",
+                path: "/post/create",
                 name: "Post Create",
-                component: ForgotPassword,
+                component: PostCreate,
                 layout: "/admin",
                 isActive: true,
             },

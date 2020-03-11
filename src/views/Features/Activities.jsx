@@ -52,10 +52,10 @@ export default function Activities() {
         <React.Fragment>
             {activities.map(activity => (
                 <>
-                    <h2 class="section-title">{activity.date}</h2>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="activities">
+                    <h2 className="section-title">{activity.date}</h2>
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="activities">
                                 {activity.items.length > 0 ?
                                     activity.items.map(item => <ActivityItem {...item} />) : <NoDataIndication />}
                             </div>

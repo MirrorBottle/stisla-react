@@ -3,75 +3,21 @@ import { Line } from 'rc-progress';
 import { Link } from 'react-router-dom'
 import moment from 'moment';
 import { Editor } from '@tinymce/tinymce-react';
-export default class Dashboard extends Component {
+import {
+    dashboard_card_icons,
+    dashboard_recent_activites,
+    dashboard_referrals,
+    dashboard_products
+} from 'data';
 
+export default class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            card_icons: [
-                {
-                    title: 'Total Admin',
-                    value: 10,
-                    icon: 'far fa-user',
-                    background: 'primary'
-                },
-                {
-                    title: 'News',
-                    value: 42,
-                    icon: 'far fa-newspaper',
-                    background: 'danger'
-                }, {
-                    title: 'Reports',
-                    value: 1.201,
-                    icon: 'far fa-file',
-                    background: 'warning'
-                },
-                {
-                    title: 'Online Users',
-                    value: 47,
-                    icon: 'fas fa-circle',
-                    background: 'success'
-                },
-            ],
-            recent_activities: [
-                {
-                    title: 'Farhan A Mujib',
-                    image: 'avatar-1.png',
-                    context: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.',
-                    time: moment()
-                },
-                {
-                    title: 'Ujang Maman',
-                    image: 'avatar-2.png',
-                    context: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.',
-                    time: moment().add(12, 'minutes')
-                },
-                {
-                    title: 'Rizal Fakhri',
-                    image: 'avatar-3.png',
-                    context: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.',
-                    time: moment().add(17, 'minutes')
-                },
-                {
-                    title: 'Alfa Zukarnain',
-                    image: 'avatar-4.png',
-                    context: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.',
-                    time: moment().add(21, 'minutes')
-                }
-            ],
-            referrals: [
-                { title: 'Google', value: 2200, color: '#DB4437' },
-                { title: 'Facebook', value: 1700, color: '#4267B2' },
-                { title: 'Bing', value: 1400, color: '#008373' },
-                { title: 'Yahoo', value: 700, color: '#6C0094' },
-                { title: 'Kodinger', value: 1600, color: '#6979BB' },
-                { title: 'Multinity', value: 1500 },
-            ],
-            products: [
-                { name: 'Final Fantasy X/X-2 HD Remastered', cost: 300, image: 'product-3-50.png', customer: 'MirrorBottle', time: moment() },
-                { name: 'Nier: Automata', cost: 500, customer: 'MirrorBottle', image: 'product-2-50.png', time: moment().add(3, 'days') },
-                { name: 'Samsung Z Flip', cost: 1380, customer: 'Hasan Basri', image: 'product-1-50.png', time: moment().add(4, 'days') },
-            ]
+            card_icons: dashboard_card_icons,
+            recent_activities: dashboard_recent_activites,
+            referrals: dashboard_referrals,
+            products: dashboard_products
         }
         this.handleEditorChange = this.handleEditorChange.bind(this);
     }
@@ -87,9 +33,6 @@ export default class Dashboard extends Component {
     }
     handleEditorChange(content, editor) {
         console.log('Content was updated:', content);
-    }
-    componentDidMount() {
-        console.log(this.props);
     }
     render() {
         const { card_icons, recent_activities, referrals, products } = this.state;
@@ -123,8 +66,8 @@ export default class Dashboard extends Component {
                                 <h4>Statistics</h4>
                                 <div class="card-header-action">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-primary">Week</a>
-                                        <a href="#" class="btn">Month</a>
+                                        <Link to="/" class="btn btn-primary">Week</Link>
+                                        <Link to="/" class="btn">Month</Link>
                                     </div>
                                 </div>
                             </div>
@@ -174,9 +117,9 @@ export default class Dashboard extends Component {
                                     ))}
                                 </ul>
                                 <div class="text-center pt-1 pb-1">
-                                    <a href="#" class="btn btn-primary btn-lg btn-round">
+                                    <Link to="/" class="btn btn-primary btn-lg btn-round">
                                         View All
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +280,7 @@ export default class Dashboard extends Component {
                             <div class="card-header">
                                 <h4 class="d-inline">Tasks</h4>
                                 <div class="card-header-action">
-                                    <a href="#" class="btn btn-primary">View All</a>
+                                    <Link to="/" class="btn btn-primary">View All</Link>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -350,7 +293,7 @@ export default class Dashboard extends Component {
                                         <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-4.png" alt="avatar" />
                                         <div class="media-body">
                                             <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished</div>
-                                            <h6 class="media-title"><a href="#">Redesign header</a></h6>
+                                            <h6 class="media-title"><Link to='/'>Redesign header</Link></h6>
                                             <div class="text-small text-muted">Alfa Zulkarnain <div class="bullet"></div> <span class="text-primary">Now</span></div>
                                         </div>
                                     </li>
@@ -362,7 +305,7 @@ export default class Dashboard extends Component {
                                         <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-5.png" alt="avatar" />
                                         <div class="media-body">
                                             <div class="badge badge-pill badge-primary mb-1 float-right">Completed</div>
-                                            <h6 class="media-title"><a href="#">Add a new component</a></h6>
+                                            <h6 class="media-title"><Link to='/'>Add a new component</Link></h6>
                                             <div class="text-small text-muted">Serj Tankian <div class="bullet"></div> 4 Min</div>
                                         </div>
                                     </li>
@@ -374,7 +317,7 @@ export default class Dashboard extends Component {
                                         <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-2.png" alt="avatar" />
                                         <div class="media-body">
                                             <div class="badge badge-pill badge-warning mb-1 float-right">Progress</div>
-                                            <h6 class="media-title"><a href="#">Fix modal window</a></h6>
+                                            <h6 class="media-title"><Link to='/'>Fix modal window</Link></h6>
                                             <div class="text-small text-muted">Ujang Maman <div class="bullet"></div> 8 Min</div>
                                         </div>
                                     </li>
@@ -386,7 +329,7 @@ export default class Dashboard extends Component {
                                         <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-1.png" alt="avatar" />
                                         <div class="media-body">
                                             <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished</div>
-                                            <h6 class="media-title"><a href="#">Remove unwanted classes</a></h6>
+                                            <h6 class="media-title"><Link to='/'>Remove unwanted classes</Link></h6>
                                             <div class="text-small text-muted">Farhan A Mujib <div class="bullet"></div> 21 Min</div>
                                         </div>
                                     </li>
@@ -443,7 +386,7 @@ export default class Dashboard extends Component {
                             <div class="card-header">
                                 <h4>Latest Posts</h4>
                                 <div class="card-header-action">
-                                    <a href="#" class="btn btn-primary">View All</a>
+                                    <Link to="/" class="btn btn-primary">View All</Link>
                                 </div>
                             </div>
                             <div class="card-body p-0">
@@ -460,7 +403,7 @@ export default class Dashboard extends Component {
                                             <tr>
                                                 <td>
                                                     Introduction Laravel 5
-                            <div class="table-links">
+                                                    <div class="table-links">
                                                         in <a href="#">Web Development</a>
                                                         <div class="bullet"></div>
                                                         <a href="#">View</a>
