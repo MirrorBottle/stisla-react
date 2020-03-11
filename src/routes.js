@@ -28,6 +28,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 // Features
 import Activities from './views/Features/Activities.jsx';
 import PostCreate from './views/Features/PostCreate.jsx';
+import Posts from './views/Features/Posts.jsx';
 
 var routes = [
     {
@@ -381,7 +382,7 @@ var routes = [
             {
                 path: "/posts",
                 name: "Posts",
-                component: ForgotPassword,
+                component: Posts,
                 layout: "/admin",
                 isActive: true,
             },
