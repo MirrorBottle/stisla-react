@@ -1,27 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import moment from 'moment';
 function ActivityItem({ activity_id, job, time, icon, content }) {
     return (
-        <div class="activity">
-            <div class="activity-icon bg-primary text-white shadow-primary">
-                <i class={icon}></i>
+        <div className="activity">
+            <div className="activity-icon bg-primary text-white shadow-primary">
+                <i className={icon}></i>
             </div>
-            <div class="activity-detail">
-                <div class="mb-2">
-                    <span class="text-job text-primary">{moment(time).fromNow(true)}</span>
-                    <span class="bullet"></span>
-                    <Link to='/' class="text-job">{job}</Link>
-                    <div class="float-right dropdown">
-                        <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-title">Options</div>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-list"></i> Detail</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger" data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?" data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Archive</a>
-                        </div>
+            <div className="activity-detail">
+                <div className="mb-2">
+                    <span className="text-job text-primary">{moment(time).fromNow(true)}</span>
+                    <span className="bullet"></span>
+                    <Link to='/' className="text-job">{job}</Link>
+                    <div className="float-right dropdown">
+                        <UncontrolledDropdown>
+                            <DropdownToggle className="btn-icon btn-primary">
+                                <i className="fas fa-ellipsis-h"></i>
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem header>Options</DropdownItem>
+                                <DropdownItem>
+                                    <Link to="/" className="text-decoration-none text-dark"><i className="fas fa-eye"></i> View</Link>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <Link to="/" className="text-decoration-none text-dark"><i className="fas fa-list"></i> Detail</Link>
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem>
+                                    <Link to="/" className="text-danger text-decoration-none" data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?" data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Archive</Link>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                     </div>
                 </div>
                 <p>{content}</p>
