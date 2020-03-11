@@ -4,5 +4,13 @@
  * because it will make it harder for you to update.
  * 
  */
+button#pageDropDown {
+    background: #6777ef !important;
+}
+
+.react-bootstrap-table-pagination-list {
+    display: flex;
+    justify-content: flex-end;
+}
 
 /*# sourceMappingURL=custom.css.map */

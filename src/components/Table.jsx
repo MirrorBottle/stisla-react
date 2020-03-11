@@ -3,7 +3,8 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-// import './../../assets/css/components/ui/table.css'
+import 'assets/css/custom.css'
+
 
 const remoteTable = (props) => {
     const NoDataIndication = () => (

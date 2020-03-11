@@ -70,3 +70,20 @@ export const dashboard_products = [
 ]
 
 
+
+// Features
+// Profile Features
+export const feature_profile = {
+    first_name: 'Ujang',
+    last_name: 'Maman',
+    profile_image: 'avatar-1.png',
+    job: 'Web Developer',
+    email: 'ujang@maman.com',
+    bio: "Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.",
+    phone: '',
+    total_posts: 187,
+    total_followers: 6800,
+    total_followings: 2100,
+}
+
+

@@ -29,6 +29,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 import Activities from './views/Features/Activities.jsx';
 import PostCreate from './views/Features/PostCreate.jsx';
 import Posts from './views/Features/Posts.jsx';
+import Profile from './views/Features/Profile.jsx';
 
 var routes = [
     {
@@ -389,7 +390,7 @@ var routes = [
             {
                 path: "/profile",
                 name: "Profile",
-                component: ForgotPassword,
+                component: Profile,
                 layout: "/admin",
                 isActive: true,
             },
