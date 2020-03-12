@@ -1,7 +1,7 @@
 import React from 'react'
 import { Editor } from '@tinymce/tinymce-react';
 import { feature_profile as profile } from 'data.js';
-
+import { Link } from 'react-router-dom';
 // Format number such as 2.800 to 2.8K
 function KFormatter(num) {
     return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'K' : Math.sign(num) * Math.abs(num)
@@ -40,18 +40,18 @@ export default function Profile() {
                         </div>
                         <div class="card-footer text-center">
                             <div class="font-weight-bold mb-2">Follow {profile.first_name} On</div>
-                            <a href="#" class="btn btn-social-icon btn-facebook mr-1">
+                            <Link to='/' class="btn btn-social-icon btn-facebook mr-1">
                                 <i class="fab fa-facebook-f text-primary"></i>
-                            </a>
-                            <a href="#" class="btn btn-social-icon btn-twitter mr-1">
+                            </Link>
+                            <Link to='/' class="btn btn-social-icon btn-twitter mr-1">
                                 <i class="fab fa-twitter text-primary"></i>
-                            </a>
-                            <a href="#" class="btn btn-social-icon btn-github mr-1">
+                            </Link>
+                            <Link to='/' class="btn btn-social-icon btn-github mr-1">
                                 <i class="fab fa-github text-primary"></i>
-                            </a>
-                            <a href="#" class="btn btn-social-icon btn-instagram">
+                            </Link>
+                            <Link to='/' class="btn btn-social-icon btn-instagram">
                                 <i class="fab fa-instagram text-primary"></i>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

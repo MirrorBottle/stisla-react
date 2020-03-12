@@ -31,6 +31,11 @@ import PostCreate from './views/Features/PostCreate.jsx';
 import Posts from './views/Features/Posts.jsx';
 import Profile from './views/Features/Profile.jsx';
 
+// Forms
+import AdvancedForm from './views/Forms/AdvancedForm.jsx';
+import EditorForm from './views/Forms/EditorForm.jsx';
+import ValidationForm from './views/Forms/ValidationForm.jsx';
+
 var routes = [
     {
         path: "/",
@@ -276,6 +281,37 @@ var routes = [
                 layout: "/admin",
                 isActive: true,
                 roles: ['admin'],
+            },
+        ]
+    },
+    {
+        path: "/",
+        name: "Forms",
+        icon: "far fa-file-alt",
+        layout: "/",
+        isActive: true,
+        roles: ['admin'],
+        subMenu: [
+            {
+                path: "/form/advanced",
+                name: "Advanced Form",
+                component: AdvancedForm,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/form/editor",
+                name: "Editor",
+                component: EditorForm,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/form/validation",
+                name: "Validation Form",
+                component: ValidationForm,
+                layout: "/admin",
+                isActive: true,
             },
         ]
     },

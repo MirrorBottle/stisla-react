@@ -28,9 +28,11 @@ export default class AdminLayout extends Component {
     }
     getRoutes(routes) {
         return routes.map((prop, key) => {
+
             if ('layout' in prop && prop.layout === '/admin') {
                 return (
                     <Route
+                        exact
                         path={prop.layout + prop.path}
                         component={() => <prop.component />}
                         key={key}
@@ -41,6 +43,7 @@ export default class AdminLayout extends Component {
                 return prop.subMenu.map((prop, key) => {
                     return (
                         <Route
+                            exact
                             path={prop.layout + prop.path}
                             component={prop.component}
                             key={key}
@@ -60,7 +63,8 @@ export default class AdminLayout extends Component {
             if ('subMenu' in menu) {
                 for (let j = 0; j < menu.subMenu.length; j++) {
                     let subMenu = menu.subMenu[j];
-                    if (path.includes(subMenu.layout + subMenu.path)) {
+                    if (path === (subMenu.layout + subMenu.path)) {
+                        console.log(path);
                         return subMenu.name;
                     }
                 }
