@@ -1,19 +1,20 @@
 
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
-
-const ToasterNotification = () => {
+import 'animate.css';
+const ToasterNotification = (title = 'Toaster', message = 'this is a toaster', type = 'default', container = 'top-right', duration = 2500) => {
     store.addNotification({
-        title: "Wonderful!",
-        message: "teodosii@react-notifications-component",
-        type: "success",
+        title,
+        message,
+        type,
         insert: "top",
-        container: "top-right",
-        animationIn: ["animated", "fadeIn"],
-        animationOut: ["animated", "fadeOut"],
+        container,
+        animationIn: ["animated", "flipInX"],
+        animationOut: ["animated", "flipOutX"],
         dismiss: {
-            duration: 5000,
-            onScreen: true
+            duration,
+            onScreen: true,
+            showIcon: true
         }
     });
 }
