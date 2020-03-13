@@ -35,6 +35,8 @@ import Profile from './views/Features/Profile.jsx';
 import AdvancedForm from './views/Forms/AdvancedForm.jsx';
 import EditorForm from './views/Forms/EditorForm.jsx';
 import ValidationForm from './views/Forms/ValidationForm.jsx';
+// Modules
+import Toaster from './views/Modules/Toaster.jsx';
 
 var routes = [
     {
@@ -310,6 +312,23 @@ var routes = [
                 path: "/form/validation",
                 name: "Validation Form",
                 component: ValidationForm,
+                layout: "/admin",
+                isActive: true,
+            },
+        ]
+    },
+    {
+        path: "/",
+        name: "Modules",
+        icon: "fas fa-plug",
+        layout: "/",
+        isActive: true,
+        roles: ['admin'],
+        subMenu: [
+            {
+                path: "/modules/toaster",
+                name: "Toaster",
+                component: Toaster,
                 layout: "/admin",
                 isActive: true,
             },

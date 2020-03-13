@@ -10,8 +10,10 @@ import AuthLayout from './layouts/AuthLayout';
 import AdminLayout from './layouts/AdminLayout';
 import LoginAlternatif from './views/Auth/LoginAlternatif';
 import Error from './views/Error/Error';
+import ReactNotification from 'react-notifications-component'
 ReactDOM.render(
     <BrowserRouter>
+        <ReactNotification />
         <Switch>
             <Route path="/error" render={props => <Error {...props} />} />
             <Route path="/auth/login-2" render={props => <LoginAlternatif {...props} />} />
