@@ -37,6 +37,8 @@ import EditorForm from './views/Forms/EditorForm.jsx';
 import ValidationForm from './views/Forms/ValidationForm.jsx';
 // Modules
 import Toaster from './views/Modules/Toaster.jsx';
+// Components
+import User from './views/Components/User.jsx';
 
 var routes = [
     {
@@ -283,6 +285,23 @@ var routes = [
                 layout: "/admin",
                 isActive: true,
                 roles: ['admin'],
+            },
+        ]
+    },
+    {
+        path: "/",
+        name: "Components",
+        icon: "fas fa-th-large",
+        layout: "/",
+        isActive: true,
+        roles: ['admin'],
+        subMenu: [
+            {
+                path: "/components/user",
+                name: "User",
+                component: User,
+                layout: "/admin",
+                isActive: true,
             },
         ]
     },

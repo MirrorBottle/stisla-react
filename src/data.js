@@ -86,7 +86,8 @@ export const feature_profile = {
     total_followings: 2100,
 }
 
-
+// Forms
+// Advanced Forms
 export const advanced_form = {
     options: [
         { label: 'Option 1', value: 'option1' },
@@ -129,4 +130,83 @@ export const advanced_form = {
         { image: 'img05.jpg', value: 'img05.jpg' },
         { image: 'img06.jpg', value: 'img06.jpg' },
     ]
+}
+
+
+// Components
+// Users
+const socials = {
+    facebook: '-',
+    github: '-',
+    twitter: '-',
+    instagram: '-',
+}
+export const components_users = {
+    user_card_one: {
+        id: 1,
+        name: 'Hasan Basri',
+        profile: 'avatar-1.png',
+        job: 'Web Developer',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        ...socials
+    },
+    user_card_two: {
+        name: 'Ujang Maman',
+        profile: 'avatar-1.png',
+        job: 'Web Developer',
+        email: 'ujang@maman.com',
+        bio: "Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.",
+        total_posts: 187,
+        total_followers: 6800,
+        total_followings: 2100,
+        ...socials
+    },
+    users: {
+        actionText: 'follow',
+        actionCallback: (data) => alert('following'),
+        dataToShow: 4,
+        dataToScroll: 2,
+        data: [
+            {
+                profile: 'avatar-1.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-2.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-3.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-4.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-5.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-1.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-2.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+            {
+                profile: 'avatar-3.png',
+                name: 'Hasan Basri',
+                job: 'Web Developer'
+            },
+        ]
+    }
 }
