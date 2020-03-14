@@ -87,3 +87,46 @@ export const feature_profile = {
 }
 
 
+export const advanced_form = {
+    options: [
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' },
+        { label: 'Option 3', value: 'option3' },
+        { label: 'Option 4', value: 'option4' },
+    ],
+    sizes: [
+        { label: 'S', value: '50' },
+        { label: 'M', value: '100' },
+        { label: 'L', value: '150' },
+        { label: 'XL', value: '100' },
+    ],
+    icons: [
+        { icon: 'fas fa-mobile', value: '50' },
+        { icon: 'fas fa-tablet', value: '100' },
+        { icon: 'fas fa-laptop', value: '150' },
+        { icon: 'fas fa-times', value: '100' },
+    ],
+    icons_circle: [
+        { icon: 'fas fa-sun', value: '50' },
+        { icon: 'fas fa-moon', value: '100' },
+        { icon: 'fas fa-cloud-rain', value: '150' },
+        { icon: 'fas fa-cloud', value: '100' },
+    ],
+    skills: [
+        { label: 'HTML', value: 'HTML' },
+        { label: 'CSS', value: 'CSS' },
+        { label: 'PHP', value: 'PHP' },
+        { label: 'JavaScript', value: 'JavaScript' },
+        { label: 'Ruby', value: 'Ruby' },
+        { label: 'Swift', value: 'Swift' },
+        { label: 'C++', value: 'C++' },
+    ],
+    images: [
+        { image: 'img01.jpg', value: 'img01.jpg' },
+        { image: 'img02.jpg', value: 'img02.jpg' },
+        { image: 'img03.jpg', value: 'img03.jpg' },
+        { image: 'img04.jpg', value: 'img04.jpg' },
+        { image: 'img05.jpg', value: 'img05.jpg' },
+        { image: 'img06.jpg', value: 'img06.jpg' },
+    ]
+}
