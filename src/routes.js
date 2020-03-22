@@ -539,7 +539,7 @@ var routes = [
                 path: "/utilities/subscribe",
                 name: "Subscribe",
                 component: Subscribe,
-                layout: "/admin",
+                layout: "/auth",
                 isActive: true,
             },
         ]
