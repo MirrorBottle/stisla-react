@@ -39,6 +39,9 @@ import ValidationForm from './views/Forms/ValidationForm.jsx';
 import Toaster from './views/Modules/Toaster.jsx';
 // Components
 import User from './views/Components/User.jsx';
+import Alert from './views/Bootstrap/Alert.jsx';
+import Wizard from './views/Components/Wizard.jsx';
+import Article from './views/Components/Article.jsx';
 
 var routes = [
     {
@@ -128,7 +131,7 @@ var routes = [
             {
                 path: "/alert",
                 name: "Alert",
-                component: props => <Dashboard {...props} />,
+                component: Alert,
                 layout: "/admin",
                 isActive: true,
                 roles: ['admin'],
@@ -297,9 +300,23 @@ var routes = [
         roles: ['admin'],
         subMenu: [
             {
+                path: "/components/article",
+                name: "Article",
+                component: Article,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
                 path: "/components/user",
                 name: "User",
                 component: User,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/components/wizard",
+                name: "Wizard",
+                component: Wizard,
                 layout: "/admin",
                 isActive: true,
             },

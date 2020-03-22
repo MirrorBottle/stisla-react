@@ -33,7 +33,7 @@ class SidebarDropdownItem extends React.Component {
         return (
             <React.Fragment>
                 <li className="nav-item">
-                    <Link to="/" onClick={this.toggle} class="nav-link">
+                    <Link to="/" onClick={this.toggle} className="nav-link">
                         <i className={icon}></i>
                         <span>{name}</span>
                         <i className="fas fa-chevron-right ml-2 float-right" id={`sidebarMenu${this.props.name}`}></i>

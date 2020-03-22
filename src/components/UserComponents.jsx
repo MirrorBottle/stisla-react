@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import 'bootstrap-social/bootstrap-social.css';
 import PropTypes from 'prop-types';
 import "slick-carousel/slick/slick.css";

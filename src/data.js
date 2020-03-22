@@ -1,5 +1,6 @@
 import moment from 'moment';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 // Dashboard Datas
 export const dashboard_card_icons = [
     {
@@ -209,4 +210,87 @@ export const components_users = {
             },
         ]
     }
+}
+
+export const components_articles = {
+    style_a: [
+        {
+            title: 'Something is wrong, i can feel it',
+            cover: require('assets/img/news/img08.jpg'),
+            caption: '--------------------',
+            link: 'posts/2',
+            buttonText: 'Read More'
+        },
+        {
+            title: 'Ring the bell, and i will leave you alone',
+            cover: require('assets/img/news/img07.jpg'),
+            caption: 'Just ring the bell. Ring it. I will leave.',
+            link: 'posts/3',
+            ButtonComponent: () => (
+                <button className="btn btn-success btn-block">Custome Button</button>
+            )
+        },
+    ],
+    style_b: [
+        // Simple Example
+        {
+            title: 'Ring the bell, and i will leave you alone',
+            cover: require('assets/img/news/img07.jpg'),
+            caption: 'Just ring the bell. Ring it. I will leave.',
+            link: 'posts/3',
+        },
+        // Advanced Example
+        {
+            title: 'Thus you shall find the path you choose',
+            cover: require('assets/img/news/img06.jpg'),
+            caption: 'Before me, for the live of the maiden, you shall defeat those',
+            link: 'posts/4',
+            linkText: 'See More',
+            withBadge: true,
+            BadgeComponent: () => (
+                <div class="article-badge">
+                    <div class="article-badge-item bg-info">
+                        <i class="fas fa-star"></i> Popular
+                    </div>
+                </div>
+            ),
+            LinkComponent: ({ link, linkText }) => (
+                <div class="article-cta">
+                    <button className="btn btn-success ">
+                        <Link className="text-white" to={link}>{linkText} <i class="fas fa-chevron-right"></i></Link>
+                    </button>
+                </div>
+            )
+        }
+    ],
+    style_c: [
+        {
+            title: 'For those who regrets, they shall vanished into the darkness',
+            cover: require('assets/img/news/img07.jpg'),
+            caption: 'What they have done is what they are now',
+            tag: 'Short Story',
+            date: moment().add(3, 'days'),
+            link: 'posts/3',
+            tagLink: 'posts/tag'
+        },
+        {
+            title: 'Thus sword shall slash thus enemy',
+            cover: require('assets/img/news/img04.jpg'),
+            caption: 'Eye for eye, and live shall be the same matter.',
+            tag: [{
+                name: 'Short Story',
+                link: 'posts/short-story'
+            }, {
+                name: 'Thriller',
+                link: 'posts/thriller'
+            }],
+            date: moment().add(5, 'days'),
+            link: 'posts/3',
+            author: {
+                name: 'Hasan Basri',
+                profile: require('assets/img/avatar/avatar-1.png'),
+                job: 'Web Developer',
+            }
+        },
+    ]
 }

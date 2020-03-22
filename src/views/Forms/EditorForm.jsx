@@ -2,12 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Editor } from '@tinymce/tinymce-react';
 import CodeEditor from '../../components/CodeEditor';
-
-import { UnControlled as CodeMirror } from 'react-codemirror2'
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
-import 'codemirror/mode/xml/xml';
-import 'codemirror/mode/javascript/javascript';
 export default function EditorForm() {
     return (
         <React.Fragment>
