@@ -41,8 +41,6 @@ export default class AuthLayout extends Component {
                         <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                             <AuthFooter />
                         </div>
-                        <img src={require('assets/img/unsplash/login-bg.jpg')} alt="" />
-
                     </div>
                 </div>
             </div>

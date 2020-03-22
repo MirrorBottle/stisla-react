@@ -43,6 +43,11 @@ import Alert from './views/Bootstrap/Alert.jsx';
 import Wizard from './views/Components/Wizard.jsx';
 import Article from './views/Components/Article.jsx';
 
+// Utilities
+import Contact from './views/Utilities/Contact.jsx';
+import Invoice from './views/Utilities/Invoice.jsx';
+import Subscribe from './views/Utilities/Subscribe.jsx';
+
 var routes = [
     {
         path: "/",
@@ -508,5 +513,36 @@ var routes = [
             },
         ]
     },
+    {
+        path: "/",
+        name: "Utilities",
+        icon: "fas fa-ellipsis-h",
+        layout: "/",
+        isActive: true,
+        roles: ['admin'],
+        subMenu: [
+            {
+                path: "/utilities/contact",
+                name: "Contact",
+                component: Contact,
+                layout: "/auth",
+                isActive: true,
+            },
+            {
+                path: "/utilities/invoice",
+                name: "Invoice",
+                component: Invoice,
+                layout: "/admin",
+                isActive: true,
+            },
+            {
+                path: "/utilities/subscribe",
+                name: "Subscribe",
+                component: Subscribe,
+                layout: "/admin",
+                isActive: true,
+            },
+        ]
+    }
 ];
 export default routes;
