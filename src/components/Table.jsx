@@ -4,7 +4,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'assets/css/custom.css'
-
+import PropTypes from 'prop-types';
 
 const remoteTable = (props) => {
     const NoDataIndication = () => (
@@ -26,7 +26,7 @@ const remoteTable = (props) => {
             bordered={false}
             loading={props.isLoaded}
             noDataIndication={() => <NoDataIndication />}
-            pagination={paginationFactory({
+            pagination={!props.withoutPagination && paginationFactory({
                 page: Math.ceil((props.data ? props.data.length : 1) / 5),
                 sizePerPage: 5,
                 totalSize: (props.data ? props.data.length : 1),
@@ -44,5 +44,13 @@ const remoteTable = (props) => {
         />
     )
 }
+remoteTable.propTypes = {
+    data: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+    withoutPagination: PropTypes.bool,
+}
 
+remoteTable.defaultProps = {
+    withoutPagination: false
+}
 export default remoteTable;

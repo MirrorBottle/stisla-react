@@ -36,7 +36,7 @@ export default class Contact extends Component {
 
                                     <div className="form-group">
                                         <label>Message</label>
-                                        <textarea className="form-control" placeholder="Type your message" data-height="150"></textarea>
+                                        <textarea className="form-control" placeholder="Type your message" rows="10" cols="5"></textarea>
                                     </div>
 
                                     <div className="form-group text-right">

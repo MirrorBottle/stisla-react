@@ -1,6 +1,10 @@
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { RowNumberFormatter, QuantityItemsTotalFormatter } from './components/TableFormatter';
+
+
+
 // Dashboard Datas
 export const dashboard_card_icons = [
     {
@@ -293,4 +297,45 @@ export const components_articles = {
             }
         },
     ]
+}
+
+
+
+// Utilities
+export const utilities_invoice = {
+    order_id: '123465',
+    date: moment().add(3, 'days'),
+    billed: {
+        name: 'Ujang Maman',
+        address: '1234 Main, APT. 4B, Bogor Barat, Indonesia'
+    },
+    shipped: {
+        name: 'Muhammad Nauval Azhar',
+        address: '1234 Main, APT. 4B, Bogor Barat, Indonesia'
+    },
+    order_columns: [
+        { dataField: '', text: '#', isDummyField: true, formatter: RowNumberFormatter },
+        { dataField: 'item', text: 'Item' },
+        { dataField: 'price', text: 'Price' },
+        { dataField: 'quantity', text: 'Quantity' },
+        { dataField: '', isDummyField: true, text: 'Totals', formatter: QuantityItemsTotalFormatter },
+    ],
+    order_items: [
+        {
+            item: 'Mouse Wireless',
+            price: 10.99,
+            quantity: 2
+        },
+        {
+            item: 'Keyboard Wireless',
+            price: 20.00,
+            quantity: 1
+        },
+        {
+            item: 'Headphone Blitz',
+            price: 600.00,
+            quantity: 3
+        },
+    ],
+    shipping_fee: 15
 }

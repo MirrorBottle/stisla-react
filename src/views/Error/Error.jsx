@@ -16,11 +16,10 @@ export default class Error extends Component {
             else if ('subMenu' in prop) {
                 return prop.subMenu.map((prop, key) => {
                     if (this.props.location.pathname.indexOf(prop.path) > -1) {
-                        console.log(prop)
                         this.setState({
                             status: prop.status,
                             message: prop.message
-                        }, () => console.log(this.state))
+                        })
                     }
                 });
             }
