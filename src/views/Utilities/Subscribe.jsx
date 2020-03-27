@@ -27,7 +27,7 @@ export default class Subscribe extends Component {
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> 
             </div>
         )
     }
