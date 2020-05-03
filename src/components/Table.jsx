@@ -12,36 +12,45 @@ const remoteTable = (props) => {
             <p className="text-center">Tidak ada data...</p>
         </div>
     );
-
+    const handleClick = () => {
+        props.data = props.data[0]
+    }
     return (
-        <BootstrapTable
-            hover
-            bootstrap4
-            keyField='id'
-            data={props.data || []}
-            columns={props.columns}
-            className="table-flush"
-            headerClasses="thead-light"
-            wrapperClasses="table-responsive"
-            bordered={false}
-            loading={props.isLoaded}
-            noDataIndication={() => <NoDataIndication />}
-            pagination={!props.withoutPagination && paginationFactory({
-                page: Math.ceil((props.data ? props.data.length : 1) / 5),
-                sizePerPage: 5,
-                totalSize: (props.data ? props.data.length : 1),
-                sizePerPageList: [{
-                    text: '5', value: 5
-                }, {
-                    text: '10', value: 10
-                }, {
-                    text: '20', value: 20
-                }, {
-                    text: 'Tampilkan Semua', value: (props.data ? props.data.length : 0)
-                }]
-            })}
-            filter={filterFactory()}
-        />
+        <div className="row">
+            <div className="col-12 d-flex justify-content-end mb-3">
+                <button className="btn btn-primary" onClick={handleClick}>Search</button>
+            </div>
+            <div className="col-12">
+                <BootstrapTable
+                    hover
+                    bootstrap4
+                    keyField='id'
+                    data={props.data || []}
+                    columns={props.columns}
+                    className="table-flush"
+                    headerClasses="thead-light"
+                    wrapperClasses="table-responsive"
+                    bordered={false}
+                    loading={props.isLoaded}
+                    noDataIndication={() => <NoDataIndication />}
+                    pagination={!props.withoutPagination && paginationFactory({
+                        page: Math.ceil((props.data ? props.data.length : 1) / 5),
+                        sizePerPage: 5,
+                        totalSize: (props.data ? props.data.length : 1),
+                        sizePerPageList: [{
+                            text: '5', value: 5
+                        }, {
+                            text: '10', value: 10
+                        }, {
+                            text: '20', value: 20
+                        }, {
+                            text: 'Tampilkan Semua', value: (props.data ? props.data.length : 0)
+                        }]
+                    })}
+                    filter={filterFactory()}
+                />
+            </div>
+        </div>
     )
 }
 remoteTable.propTypes = {

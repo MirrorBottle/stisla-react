@@ -22,7 +22,6 @@ export const TitleFormatter = (cell, row, rowIndex, formatExtraData) => {
 
 // Status Formatter
 export const StatusFormatter = (cell, row, rowIndex, formatExtraData) => {
-    console.log(cell, row, rowIndex, formatExtraData);
     return <div className={`badge text-capitalize badge-${row.status_color}`}>{row.status}</div>
 }
 
