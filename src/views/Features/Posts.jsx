@@ -23,7 +23,95 @@ export default class Posts extends Component {
                     status_color: 'warning'
                 },
                 {
-                    title: 'Laravel 5 Tutorial: Installing',
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Laravel 5 Tutorial: Introduction',
+                    category: 'Web Developer, Tutorial',
+                    author: 'Rizal Fakhri',
+                    created_at: moment().format('YYYY-DD-MM'),
+                    status: 'pending',
+                    status_color: 'warning'
+                },
+                {
+                    title: 'Something Laravel 5 Tutorial: Installing',
                     category: 'Web Developer, Tutorial',
                     author: 'Rizal Fakhri',
                     created_at: moment().format('YYYY-DD-MM'),
@@ -71,25 +159,6 @@ export default class Posts extends Component {
                                 <h4>All Posts</h4>
                             </div>
                             <div className="card-body">
-                                <div className="float-left">
-                                    <select className="form-control selectric">
-                                        <option>Action For Selected</option>
-                                        <option>Move to Draft</option>
-                                        <option>Move to Pending</option>
-                                        <option>Delete Pemanently</option>
-                                    </select>
-                                </div>
-                                <div className="float-right">
-                                    <form>
-                                        <div className="input-group">
-                                            <input type="text" className="form-control" placeholder="Search" />
-                                            <div className="input-group-append">
-                                                <button className="btn btn-primary"><i className="fas fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div className="clearfix mb-3"></div>
                                 <Table columns={this.state.table_columns} data={this.state.posts} />
                             </div>
                         </div>

@@ -1,38 +1,50 @@
+/*!
 
+=========================================================
+* Argon Dashboard React - v1.0.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
 import React from 'react';
 // Auth
-import Login from './views/Auth/Login.jsx';
+import Login from './views/Auth/Login';
 import Register from './views/Auth/Register';
-import ResetPassword from './views/Auth/ResetPassword.jsx';
-import ForgotPassword from './views/Auth/ForgotPassword.jsx';
+import ResetPassword from './views/Auth/ResetPassword';
+import ForgotPassword from './views/Auth/ForgotPassword';
 
 // Dashboard
 import Dashboard from './views/Dashboard/Dashboard';
 
 // Features
-import Activities from './views/Features/Activities.jsx';
-import PostCreate from './views/Features/PostCreate.jsx';
-import Posts from './views/Features/Posts.jsx';
-import Profile from './views/Features/Profile.jsx';
+import Activities from './views/Features/Activities';
+import PostCreate from './views/Features/PostCreate';
+import Posts from './views/Features/Posts';
+import Profile from './views/Features/Profile';
 
 // Forms
-import AdvancedForm from './views/Forms/AdvancedForm.jsx';
-import EditorForm from './views/Forms/EditorForm.jsx';
-import ValidationForm from './views/Forms/ValidationForm.jsx';
+import AdvancedForm from './views/Forms/AdvancedForm';
+import EditorForm from './views/Forms/EditorForm';
+import ValidationForm from './views/Forms/ValidationForm';
 // Modules
-import Toaster from './views/Modules/Toaster.jsx';
+import Toaster from './views/Modules/Toaster';
 // Components
-import User from './views/Components/User.jsx';
-import Alert from './views/Bootstrap/Alert.jsx';
-import Wizard from './views/Components/Wizard.jsx';
-import Article from './views/Components/Article.jsx';
+import User from './views/Components/User';
+import Alert from './views/Bootstrap/Alert';
+import Wizard from './views/Components/Wizard';
+import Article from './views/Components/Article';
 
-// Utilities
-import Contact from './views/Utilities/Contact.jsx';
-import Invoice from './views/Utilities/Invoice.jsx';
-import Subscribe from './views/Utilities/Subscribe.jsx';
 
-var routes = [
+const routes = [
     {
         path: "/",
         name: "Dashboard",
@@ -497,36 +509,5 @@ var routes = [
             },
         ]
     },
-    {
-        path: "/",
-        name: "Utilities",
-        icon: "fas fa-ellipsis-h",
-        layout: "/",
-        isActive: true,
-        roles: ['admin'],
-        subMenu: [
-            {
-                path: "/utilities/contact",
-                name: "Contact",
-                component: Contact,
-                layout: "/auth",
-                isActive: true,
-            },
-            {
-                path: "/utilities/invoice",
-                name: "Invoice",
-                component: Invoice,
-                layout: "/admin",
-                isActive: true,
-            },
-            {
-                path: "/utilities/subscribe",
-                name: "Subscribe",
-                component: Subscribe,
-                layout: "/auth",
-                isActive: true,
-            },
-        ]
-    }
 ];
 export default routes;

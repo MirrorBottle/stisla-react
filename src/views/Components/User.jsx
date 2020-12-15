@@ -1,6 +1,6 @@
 import React from 'react'
 import { UserCardOne, UserCardTwo, Users } from '../../components/UserComponents'
-import { components_users as users } from 'data.js';
+import { components_users as users } from '../../data';
 
 const follow = id => {
     alert(id)

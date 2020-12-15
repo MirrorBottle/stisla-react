@@ -1,9 +1,6 @@
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RowNumberFormatter, QuantityItemsTotalFormatter } from './components/TableFormatter';
-
-
 
 // Dashboard Datas
 export const dashboard_card_icons = [
@@ -69,7 +66,7 @@ export const dashboard_referrals = [
 ]
 
 export const dashboard_products = [
-    { name: 'Final Fantasy X/X-2 HD Remastered', cost: 300, image: 'product-3-50.png', customer: 'MirrorBottle', time: moment() },
+    { name: 'Final Fantasy X/X-2 HD Remastered', cost: 300, customer: 'MirrorBottle', image: 'product-3-50.png', time: moment() },
     { name: 'Nier: Automata', cost: 500, customer: 'MirrorBottle', image: 'product-2-50.png', time: moment().add(3, 'days') },
     { name: 'Samsung Z Flip', cost: 1380, customer: 'Hasan Basri', image: 'product-1-50.png', time: moment().add(4, 'days') },
 ]
@@ -77,6 +74,8 @@ export const dashboard_products = [
 
 
 // Features
+
+
 // Profile Features
 export const feature_profile = {
     first_name: 'Ujang',
@@ -168,7 +167,7 @@ export const components_users = {
     },
     users: {
         actionText: 'follow',
-        actionCallback: (data) => alert('following'),
+        actionCallback: () => alert('following'),
         dataToShow: 4,
         dataToScroll: 2,
         data: [
@@ -230,52 +229,40 @@ export const components_articles = {
             cover: require('assets/img/news/img07.jpg'),
             caption: 'Just ring the bell. Ring it. I will leave.',
             link: 'posts/3',
-            ButtonComponent: () => (
-                <button className="btn btn-success btn-block">Custome Button</button>
-            )
         },
     ],
     style_b: [
-        // Simple Example
+        {
+            title: 'Something is wrong, i can feel it',
+            cover: require('assets/img/news/img08.jpg'),
+            caption: '--------------------',
+            link: 'posts/2',
+            linkText: 'Read More'
+        },
         {
             title: 'Ring the bell, and i will leave you alone',
             cover: require('assets/img/news/img07.jpg'),
             caption: 'Just ring the bell. Ring it. I will leave.',
             link: 'posts/3',
-        },
-        // Advanced Example
-        {
-            title: 'Thus you shall find the path you choose',
-            cover: require('assets/img/news/img06.jpg'),
-            caption: 'Before me, for the live of the maiden, you shall defeat those',
-            link: 'posts/4',
-            linkText: 'See More',
             withBadge: true,
-            BadgeComponent: () => (
-                <div class="article-badge">
-                    <div class="article-badge-item bg-info">
-                        <i class="fas fa-star"></i> Popular
-                    </div>
-                </div>
-            ),
-            LinkComponent: ({ link, linkText }) => (
-                <div class="article-cta">
-                    <button className="btn btn-success ">
-                        <Link className="text-white" to={link}>{linkText} <i class="fas fa-chevron-right"></i></Link>
-                    </button>
-                </div>
-            )
-        }
+            badgeData: {
+                icon: 'fas fa-star',
+                color: 'danger',
+                text: 'Trending'
+            }
+        },
     ],
     style_c: [
         {
             title: 'For those who regrets, they shall vanished into the darkness',
             cover: require('assets/img/news/img07.jpg'),
             caption: 'What they have done is what they are now',
-            tag: 'Short Story',
+            tag: {
+                name: 'Short Story',
+                link: 'posts/tag'
+            },
             date: moment().add(3, 'days'),
-            link: 'posts/3',
-            tagLink: 'posts/tag'
+            link: 'posts/3'
         },
         {
             title: 'Thus sword shall slash thus enemy',
@@ -297,45 +284,4 @@ export const components_articles = {
             }
         },
     ]
-}
-
-
-
-// Utilities
-export const utilities_invoice = {
-    order_id: '123465',
-    date: moment().add(3, 'days'),
-    billed: {
-        name: 'Ujang Maman',
-        address: '1234 Main, APT. 4B, Bogor Barat, Indonesia'
-    },
-    shipped: {
-        name: 'Muhammad Nauval Azhar',
-        address: '1234 Main, APT. 4B, Bogor Barat, Indonesia'
-    },
-    order_columns: [
-        { dataField: '', text: '#', isDummyField: true, formatter: RowNumberFormatter },
-        { dataField: 'item', text: 'Item' },
-        { dataField: 'price', text: 'Price' },
-        { dataField: 'quantity', text: 'Quantity' },
-        { dataField: '', isDummyField: true, text: 'Totals', formatter: QuantityItemsTotalFormatter },
-    ],
-    order_items: [
-        {
-            item: 'Mouse Wireless',
-            price: 10.99,
-            quantity: 2
-        },
-        {
-            item: 'Keyboard Wireless',
-            price: 20.00,
-            quantity: 1
-        },
-        {
-            item: 'Headphone Blitz',
-            price: 600.00,
-            quantity: 3
-        },
-    ],
-    shipping_fee: 15
 }

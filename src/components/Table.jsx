@@ -3,8 +3,10 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import 'assets/css/custom.css'
-import PropTypes from 'prop-types';
+
+const { SearchBar } = Search;
 
 const remoteTable = (props) => {
     const NoDataIndication = () => (
@@ -12,54 +14,46 @@ const remoteTable = (props) => {
             <p className="text-center">Tidak ada data...</p>
         </div>
     );
-    const handleClick = () => {
-        props.data = props.data[0]
-    }
+
     return (
-        <div className="row">
-            <div className="col-12 d-flex justify-content-end mb-3">
-                <button className="btn btn-primary" onClick={handleClick}>Search</button>
-            </div>
-            <div className="col-12">
-                <BootstrapTable
-                    hover
-                    bootstrap4
-                    keyField='id'
-                    data={props.data || []}
-                    columns={props.columns}
-                    className="table-flush"
-                    headerClasses="thead-light"
-                    wrapperClasses="table-responsive"
-                    bordered={false}
-                    loading={props.isLoaded}
-                    noDataIndication={() => <NoDataIndication />}
-                    pagination={!props.withoutPagination && paginationFactory({
-                        page: Math.ceil((props.data ? props.data.length : 1) / 5),
-                        sizePerPage: 5,
-                        totalSize: (props.data ? props.data.length : 1),
-                        sizePerPageList: [{
-                            text: '5', value: 5
-                        }, {
-                            text: '10', value: 10
-                        }, {
-                            text: '20', value: 20
-                        }, {
-                            text: 'Tampilkan Semua', value: (props.data ? props.data.length : 0)
-                        }]
-                    })}
-                    filter={filterFactory()}
-                />
-            </div>
-        </div>
+        <ToolkitProvider
+            keyField="id"
+            data={props.data || ""}
+            columns={props.columns}
+            search
+        >
+            {
+                tableProps => {
+                    console.log(tableProps)
+                    return (
+                        <React.Fragment>
+                            <div className="float-right">
+                                <form>
+                                    <div className="input-group">
+                                        <SearchBar {...tableProps.searchProps} />
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="clearfix mb-3"></div>
+                            <BootstrapTable
+                                {...tableProps.baseProps}
+                                hover
+                                bootstrap4
+                                className="table-flush"
+                                headerClasses="thead-light"
+                                wrapperClasses="table-responsive"
+                                bordered={false}
+                                loading={props.isLoaded}
+                                noDataIndication={() => <NoDataIndication />}
+                                pagination={paginationFactory()}
+                            />
+                        </React.Fragment>
+
+                    )
+                }
+            }
+        </ToolkitProvider>
     )
 }
-remoteTable.propTypes = {
-    data: PropTypes.array.isRequired,
-    columns: PropTypes.array.isRequired,
-    withoutPagination: PropTypes.bool,
-}
 
-remoteTable.defaultProps = {
-    withoutPagination: false
-}
 export default remoteTable;

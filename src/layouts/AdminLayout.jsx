@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AdminNavbar from './partials/Navbars/AdminNavbar';
 import AdminFooter from './partials/Footers/AdminFooter';
 import Sidebar from './partials/Sidebars/Sidebar';
-import routes from "routes.js";
+import routes from "../routes";
 
 export default class AdminLayout extends Component {
     constructor(props) {
